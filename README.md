@@ -1,7 +1,7 @@
 # README for **Smart Plant Disease Detector**
 
+![Smart Plant Disease Detector](https://github.com/FerasAlshash/Planet-Diseas/blob/main/SEdmkmBLlPZhdSdkqtLYm.jpg)
 
-![Smart Plant Disease Detector](https://github.com/username/repo-name/blob/main/assets/image.png?raw=true)
 ---
 
 ## 🌱 Project Overview
