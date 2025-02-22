@@ -1,18 +1,29 @@
 from flask import Flask, request, render_template, jsonify
 import numpy as np
-
 import os
+import requests
+
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 from tensorflow.keras.models import load_model
 from PIL import Image
 
-app = Flask(__name__)
 
 
-model_path = 'D:/VS Code/Projects/Plant Leaf Disease Detection/plant_disease_classifier_CNN.h5'
+
+# تحميل النموذج من GitHub إذا لم يكن موجودًا محليًا
+model_url = 'https://github.com/yourusername/yourrepo/raw/main/plant_disease_classifier_CNN.h5'
+model_path = 'plant_disease_classifier_CNN.h5'
+
+if not os.path.exists(model_path):
+    response = requests.get(model_url)
+    with open(model_path, 'wb') as f:
+        f.write(response.content)
+    print(f"Model downloaded and saved to {model_path}")
+
+# تحميل النموذج
 model = load_model(model_path)
 
-
+# التصنيفات
 class_labels = {
     0: 'Apple___Apple_scab',
     1: 'Apple___Black_rot',
@@ -68,7 +79,6 @@ def predict():
             predicted_class = np.argmax(prediction, axis=1)[0]
             label = class_labels.get(predicted_class, "Unknown Disease")
 
-            
             print(f"Prediction Probabilities: {prediction}")
             print(f"Predicted Class Index: {predicted_class}, Label: {label}")
 
