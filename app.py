@@ -9,8 +9,7 @@ from PIL import Image
 
 
 
-
-# تحميل النموذج من GitHub إذا لم يكن موجودًا محليًا
+ 
 model_url = 'plant_disease_classifier_CNN.h5'
 model_path = 'plant_disease_classifier_CNN.h5'
 
@@ -20,10 +19,10 @@ if not os.path.exists(model_path):
         f.write(response.content)
     print(f"Model downloaded and saved to {model_path}")
 
-# تحميل النموذج
+ 
 model = load_model(model_path)
 
-# التصنيفات
+
 class_labels = {
     0: 'Apple___Apple_scab',
     1: 'Apple___Black_rot',
@@ -46,7 +45,7 @@ class_labels = {
     18: 'Tomato___Tomato_mosaic_virus'
 }
 
-# دالة معالجة الصورة
+
 def preprocess_image(image):
     try:
         image = image.convert('RGB')  # تحويل إلى RGB
