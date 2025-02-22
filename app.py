@@ -10,6 +10,9 @@ import tensorflow as tf
 tf.get_logger().setLevel('ERROR')
 
 
+app = Flask(__name__)
+
+
 
 
  
