@@ -11,7 +11,7 @@ from PIL import Image
 
 
 # تحميل النموذج من GitHub إذا لم يكن موجودًا محليًا
-model_url = 'https://github.com/yourusername/yourrepo/raw/main/plant_disease_classifier_CNN.h5'
+model_url = 'plant_disease_classifier_CNN.h5'
 model_path = 'plant_disease_classifier_CNN.h5'
 
 if not os.path.exists(model_path):
