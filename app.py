@@ -2,10 +2,13 @@ from flask import Flask, request, render_template, jsonify
 import numpy as np
 import os
 import requests
+from PIL import Image
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 from tensorflow.keras.models import load_model
-from PIL import Image
+import tensorflow as tf
+tf.get_logger().setLevel('ERROR')
+
 
 
 
